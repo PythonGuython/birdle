@@ -1,3 +1,6 @@
+import random
+import json
+
 with open('wordle-answers-alphabetical.txt', 'r') as f:
      words = f.readlines()
      words = [word[:-1] for word in words]
@@ -8,7 +11,8 @@ for word in words:
     if len(set(word)) == 5:
         curated_words.append(word)
 
-print("number of words in list", len(words))
-print("number of words in list that don't repeat letters", len(curated_words))
+random.shuffle(curated_words)
+
+print(json.dumps(curated_words))
 
 
